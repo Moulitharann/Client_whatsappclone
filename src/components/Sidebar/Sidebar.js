@@ -14,7 +14,7 @@ const Sidebar = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/all/rooms");
+        const response = await axios.get("https://whatsappclone-ykcz.onrender.com/all/rooms");
         setRooms(response.data.data);  // Assuming the backend wraps returned data in a `data` object.
       } catch (error) {
         console.error("Failed to fetch rooms:", error);

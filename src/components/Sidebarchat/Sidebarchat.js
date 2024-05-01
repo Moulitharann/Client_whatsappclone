@@ -17,7 +17,7 @@ const Sidebarchat = ({addnewchat,name,id}) => {
       if(roomName)
       {
         try{
-          await axios.post("http://localhost:8000/groups/create",{
+          await axios.post("https://whatsappclone-ykcz.onrender.com/groups/create",{
         groupname:roomName,});
         
         }
