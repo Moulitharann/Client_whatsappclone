@@ -9,7 +9,7 @@ import Pusher from 'pusher-js';
 
 const Sidebar = () => {
   const [rooms, setRooms] = useState([]);
-  const [{ user }, dispatch] = useStateValue();  
+  const [{ user }] = useStateValue();  
 
   useEffect(() => {
     const fetchRooms = async () => {
