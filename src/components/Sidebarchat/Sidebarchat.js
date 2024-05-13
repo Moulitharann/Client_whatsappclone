@@ -17,7 +17,7 @@ const Sidebarchat = ({addnewchat,name,id}) => {
       if(roomName)
       {
         try{
-          await axios.post(`${process.env.Backend_url}/groups/create`,{
+          await axios.post(`${process.env.REACT_APP_Backend_url}/groups/create`,{
         groupname:roomName,});
         
         }

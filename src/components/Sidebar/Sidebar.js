@@ -11,12 +11,10 @@ const Sidebar = () => {
   const [rooms, setRooms] = useState([]);
   const [{ user }, dispatch] = useStateValue();  
 
-  console.log(process.env.Backend_url)
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await axios.get(`${process.env.Backend_url}/all/rooms`);
-        console.log(response);
+        const response = await axios.get(`${process.env.REACT_APP_Backend_url}/all/rooms`);
         setRooms(response.data.data); 
       } catch (error) {
         console.error("Failed to fetch rooms:", error);
