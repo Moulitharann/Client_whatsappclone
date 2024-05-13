@@ -20,7 +20,7 @@ const Login = () => {
        })
       
     }).catch((err)=>{
-        alert("No Internet ")
+        alert(err.result)
         console.log(err.result)
     })
   }

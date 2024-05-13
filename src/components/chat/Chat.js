@@ -55,7 +55,7 @@ const Chat = () => {
                     setError("Failed to fetch room data");
                 });
 
-                axios.get(`https://whatsappclone-ykcz.onrender.com/messages/${roomId}`).then((response)=>{
+                axios.get(`${process.env.Backend_url}/messages/${roomId}`).then((response)=>{
                   SetMessages(response.data)
                 })
         }
@@ -71,7 +71,7 @@ const Chat = () => {
             return;
         }
 
-        await axios.post("https://whatsappclone-ykcz.onrender.com/Message/new", {
+        await axios.post(`${process.env.Backend_url}/Message/new`, {
             Message: input,
             name: user.displayName,
             timestamps: new Date(),

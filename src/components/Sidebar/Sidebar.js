@@ -5,39 +5,37 @@ import { Chat, DonutLarge, MoreVert, SearchOutlined } from '@mui/icons-material'
 import Sidebarchat from '../Sidebarchat/Sidebarchat';
 import axios from 'axios';
 import { useStateValue } from '../contextapi/Stateprovider';
-import Pusher from 'pusher-js'
+import Pusher from 'pusher-js';
 
 const Sidebar = () => {
   const [rooms, setRooms] = useState([]);
-  const [{ user }, dispatch] = useStateValue();  // Assuming dispatch might be used somewhere or is needed for future.
+  const [{ user }, dispatch] = useStateValue();  
 
+  console.log(process.env.Backend_url)
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await axios.get("https://whatsappclone-ykcz.onrender.com/all/rooms");
-        setRooms(response.data.data);  // Assuming the backend wraps returned data in a `data` object.
+        const response = await axios.get(`${process.env.Backend_url}/all/rooms`);
+        console.log(response);
+        setRooms(response.data.data); 
       } catch (error) {
         console.error("Failed to fetch rooms:", error);
-        // Optionally, handle errors with UI feedback, e.g., a toast notification or error message.
       }
     };
 
-   
-
     fetchRooms();
-  }, []);  // Empty dependency array means this effect will only run once after the component mounts.
+  }, []);  
 
-  useEffect(()=>{
+  useEffect(() => {
     const pusher = new Pusher('1212a6ec6365f5251d2b', {
       cluster: 'ap2'
     });
 
     const channel = pusher.subscribe('room');
-  channel.bind('inserted', function(room) {
-    setRooms(prevRooms => [...prevRooms, room]);
-  });
-  },[])
-  // console.log(rooms);
+    channel.bind('inserted', function(room) {
+      setRooms(prevRooms => [...prevRooms, room]);
+    });
+  }, []);
 
   return (
     <div className='sidebar'> 
