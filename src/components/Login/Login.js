@@ -7,7 +7,7 @@ import { useStateValue } from '../contextapi/Stateprovider';
 import { actionTypes } from '../contextapi/reducer';
 
 const Login = () => {
-  const [{}, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
 
   const signin = () => {
     signInWithPopup(auth, provider)
