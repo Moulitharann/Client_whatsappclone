@@ -85,3 +85,44 @@
     padding: 10px !important;
     color: grey !important;
 }
+
+.toggle-button {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: white;
+    z-index: 101;
+}
+
+
+@media (max-width: 768px) {
+    .sidebar {
+        flex: 0;
+        width: 100%;
+        transform: translateX(-100%);
+    }
+
+    .open {
+        transform: translateX(0);
+    }
+
+    .sidebar__header {
+        border-right: none;
+        color:black;
+    }
+
+    .toggle-button {
+        display: block;
+        color: black;
+    }
+
+    .sidebar__search {
+        border-top: 1px solid lightgrey;
+        border-bottom: 1px solid lightgrey;
+    }
+}

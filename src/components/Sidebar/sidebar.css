@@ -1,7 +1,29 @@
+/* sidebar.css */
 .sidebar {
     display: flex;
     flex-direction: column;
     flex: 0.35;
+    background-color: #fff;
+    height: 100%;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.open {
+    transform: translateX(0);
+}
+
+.toggle-button {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    color: white;
+    z-index: 101;
 }
 
 .sidebar__header {
@@ -14,13 +36,6 @@
 .sidebar__headerRight {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    min-width: 10vw;
-}
-
-.sidebar__headerRight {
-    margin-right: 0vw;
-    font-size: 24px !important;
 }
 
 .sidebar__search {
@@ -41,7 +56,7 @@
 }
 
 .sidebar__searchContainer > .search {
-    color: grey !important;
+    color: grey;
     padding: 15px;
 }
 
@@ -51,8 +66,71 @@
     margin-left: 10px;
     width: 100%;
 }
-.sidebar__chats{
+
+.sidebar__chats {
     flex: 1;
     background-color: white;
     overflow: scroll;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        flex: 0;
+        width: 100%;
+        transform: translateX(-100%);
+    }
+
+    .open {
+        transform: translateX(0);
+    }
+
+    .sidebar__header {
+        border-right: none;
+        color:black;
+    }
+
+    .toggle-button {
+        display: block;
+        color: black;
+        padding: 12px 17px;
+    }
+
+    .sidebar__search {
+        border-top: 1px solid lightgrey;
+        border-bottom: 1px solid lightgrey;
+    }
+}
+
+.icondropdown .dropdown{
+  display: none;
+}
+.icondropdown:hover .dropdown {
+    display: block !important;
+    
+}.container:hover .dropdown,
+.icondropdown:hover .dropdown {
+    display: block;
+}
+
+.icondropdown {
+    position: relative;
+}
+
+.dropdown {
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    right: 0; 
+    z-index: 1;
+    cursor: pointer;
+}
+
+.dropdown button {
+    margin-top: 4px;
+    cursor: pointer;
+    color: red;
+    padding: 4px;
+    background: rgb(241, 236, 236);
+    border: 2px solid white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
