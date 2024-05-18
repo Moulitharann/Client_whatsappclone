@@ -36,9 +36,8 @@ const Sidebar = () => {
         });
     }, []);
 
-    const toggleSidebar = () => {
-        setIsOpen(!isOpen); 
-    };
+    setIsOpen(!isOpen); 
+    
     const logout = (event) => {
         event.stopPropagation(); 
         localStorage.setItem("user", null);
