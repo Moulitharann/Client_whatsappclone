@@ -6,7 +6,6 @@ import Sidebarchat from '../Sidebarchat/Sidebarchat';
 import axios from 'axios';
 import { useStateValue } from '../contextapi/Stateprovider';
 import Pusher from 'pusher-js';
-import { Navigate, useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
     const [rooms, setRooms] = useState([]);
